@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doctor-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: doctor-app
+  template:
+    metadata:
+      labels:
+        app: doctor-app
+    spec:
+      containers:
+        - name: doctor-app
+          image: nivethitha24/doctor-app:latest
+          ports:
+            - containerPort: 5000
